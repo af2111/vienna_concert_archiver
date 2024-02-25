@@ -1,0 +1,25 @@
+{
+  "name": "arena_search_tool",
+  "version": "1.0.0",
+  "description": "Fetches data from events in Arena Wien with Web Interface to go through all.",
+  "main": "built/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon",
+    "build-dev": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/sqlite3": "^3.1.11",
+    "cheerio": "^1.0.0-rc.12",
+    "mongodb": "^6.3.0",
+    "node-fetch": "^3.3.2",
+    "npm": "^10.4.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "@types/node-fetch": "^2.6.11"
+  }
+}
