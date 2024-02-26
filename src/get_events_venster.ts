@@ -1,17 +1,11 @@
 import * as cheerio from "cheerio";
 import { Standard_Event } from "./types/Arena_Event";
-
-
-
 /*
 This function gets all of the events from the venster99 events calendar
 by scraping the site with cheerio and standardises the data in the 
 basic format
-
-
 */
 export async function get_events_venster(month: number, year: number): Promise<Array<Standard_Event>> {
-
     const res = await fetch("https://www.venster99.at/event-created/" + year.toString() + "-" + month.toString());
     const html_raw = await res.text();
     const $ = cheerio.load(html_raw);
@@ -49,4 +43,3 @@ export async function get_events_venster(month: number, year: number): Promise<A
         throw Error("Venster Website macht Faxen");
     }
 }
-

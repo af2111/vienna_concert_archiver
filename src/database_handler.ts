@@ -1,8 +1,9 @@
 import sqlite from "sqlite3";
 import { Standard_Event } from "./types/Arena_Event";
 import { RunResult } from "sqlite3";
+import { db_path } from "./settings/settings";
 //connect to db
-const db = new sqlite.Database("/home/af2111/Schreibtisch/Coding/Arena_Search_Tool/db/ARENA_EVENTS.db");
+const db = new sqlite.Database(db_path);
 
 
 //takes Event and inserts it in DB
@@ -25,4 +26,3 @@ export function insertEvent(arena_event: Standard_Event) : void {
         }
     });
 }
-
