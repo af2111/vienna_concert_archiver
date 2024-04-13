@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { Standard_Event } from "./types/Arena_Event";
+import { Standard_Event } from "./types/Standard_Event";
 /*
 This function gets all of the events from the venster99 events calendar
 by scraping the site with cheerio and standardises the data in the 

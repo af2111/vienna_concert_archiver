@@ -1,5 +1,5 @@
 import { URLSearchParams } from "url";
-import { Standard_Event } from "./types/Arena_Event.js";
+import { Standard_Event } from "./types/Standard_Event.js";
 
 /*
 this function fetches the Concert Data from Arena's API,
