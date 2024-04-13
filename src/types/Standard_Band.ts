@@ -1,4 +1,4 @@
 export interface Standard_Band {
-    ID: number;
-    Name: String;
+    name: String;
+    country: String;
 }

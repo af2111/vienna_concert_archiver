@@ -1,10 +1,11 @@
 import { Standard_Event } from "./types/Standard_Event";
 import { RunResult } from "sqlite3";
 import { Database } from "sqlite";
+import { Standard_Band } from "./types/Standard_Band";
 
 
 //takes Event and inserts it in DB
-export function insertEvent(db: Database, event: Standard_Event) : void {
+export async function insertEvent(db: Database, event: Standard_Event) : Promise<void> {
     const sql_string = "INSERT INTO events (title, LocationID, BeginDate, EndDate, URL) VALUES (?, ?, ?, ? ,?);";
     //define values for insertion
     const insert_values = [
@@ -15,15 +16,22 @@ export function insertEvent(db: Database, event: Standard_Event) : void {
         event.URL
     ]
     //run the insert command + errorhandling
-    db.run(sql_string, insert_values, (res: RunResult, err: Error) => {
+    await db.run(sql_string, insert_values, (res: RunResult, err: Error) => {
         if(err) {
-            throw Error("Database Insert failed: " + err.message);
+            throw Error("Database Event Insert failed: " + err.message);
         } else {
-            console.log("Insert Successful, Title: " + insert_values[0])
+            console.log("Event Insert Successful, Title: " + insert_values[0])
         }
     });
 };
 
+export async function insertBand(db: Database, band: Standard_Band) {
+    const sql_string = "INSERT INTO bands (name) VALUES (?);";
+
+    const insert_value = band.name;
+
+    await db.run(sql_string, insert_value);
+}
 //basic data retrieval from db
 
 export async function getData(db: Database): Promise<Standard_Event[]> {
